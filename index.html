@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Princess Playlist - ETUDE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="selection-mode">
+    <div id="app" class="app-container">
+        <!-- Home Screen -->
+        <div id="home-screen" class="home-screen">
+            <div class="home-content">
+                <div class="home-logo">
+                    <img src="logo_circle.png" class="logo-preview-img">
+                    <h1 class="home-title">Princess Playlist</h1>
+                </div>
+                <div class="home-menu">
+                    <button class="home-btn primary" id="home-start-warm">디어 (Warm) 메이크업</button>
+                    <button class="home-btn primary" id="home-start-cool">픽시 (Cool) 메이크업</button>
+                    <button class="home-btn secondary" id="home-view-gallery">나만의 공주 갤러리</button>
+                    <button class="home-btn text" id="home-reset">데이터 초기화</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Finish Screen -->
+        <div id="finish-screen" class="finish-screen hidden">
+            <header class="screen-header">
+                <button class="finish-back-btn">✕</button>
+                <h2>나의 공주님 완성!</h2>
+                <div style="width: 40px;"></div>
+            </header>
+            <div class="finish-content">
+                <div class="result-card">
+                    <div id="result-view" class="result-view">
+                        <!-- Final character preview here -->
+                    </div>
+                    <div class="result-info">
+                        <input type="text" id="princess-name-input" placeholder="공주의 이름을 지어주세요" value="에뛰드 프린세스">
+                        <button class="save-final-btn" id="confirm-save">갤러리에 저장하기</button>
+                        <div id="post-save-actions" class="post-save-actions hidden">
+                            <button class="save-final-btn" id="go-makeup">메이크업룸으로 돌아가기</button>
+                            <button class="save-final-btn" id="go-home">홈화면으로 돌아가기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invitation Screen -->
+        <div id="invitation-screen" class="invitation-screen hidden">
+            <div class="invitation-content">
+                <button id="close-invitation" class="invitation-close-btn">✕</button>
+                <img src="invitation.png" class="invitation-img">
+            </div>
+        </div>
+
+        <!-- Gallery Screen -->
+        <div id="gallery-screen" class="gallery-screen hidden">
+            <header class="screen-header">
+                <button class="gallery-back-btn">✕</button>
+                <h2>나만의 공주 갤러리</h2>
+                <div style="width: 40px;"></div>
+            </header>
+            <div class="gallery-grid" id="gallery-list">
+                <!-- Saved items here -->
+            </div>
+            <div id="gallery-empty" class="gallery-empty">아직 저장된 공주가 없어요!</div>
+        </div>
+
+        <!-- Selection Screen (First Time) -->
+        <div id="start-screen" class="start-screen hidden">
+            <div class="start-content">
+                <h1 class="start-title">Princess Playlist</h1>
+                <p class="start-subtitle">당신의 퍼스널 컬러를 선택하세요</p>
+                <div class="selection-cards">
+                    <div class="selection-card warm" id="select-warm">
+                        <div class="card-image-wrap">
+                            <img src="warm_char.png" class="card-img warm-img">
+                        </div>
+                        <span class="card-label">WARM (DEAR)</span>
+                    </div>
+                    <div class="selection-card cool" id="select-cool">
+                        <div class="card-image-wrap">
+                            <img src="cool_char.png" class="card-img cool-img">
+                        </div>
+                        <span class="card-label">COOL (PIXIE)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Background Decorations -->
+        <div class="bg-decoration-1"></div>
+        <div class="bg-decoration-2"></div>
+
+        <header class="game-header">
+            <button class="back-btn" id="nav-home">✕</button>
+            <h1 class="logo-text">Princess <span>Playlist</span></h1>
+            <button class="next-btn" id="save-character">〉</button>
+        </header>
+
+        <main class="game-content">
+            <div class="character-section">
+                <div class="character-name-container">
+                    <span id="character-name">디어 (WARM DEAR)</span>
+                </div>
+                
+                <div class="oval-frame">
+                    <img src="warm_char.png" id="main-char" class="main-character-img">
+                    <canvas id="makeup-canvas"></canvas>
+                </div>
+
+                <nav class="category-sidebar">
+                    <div class="sidebar-tab active" data-category="face">페이스</div>
+                    <div class="sidebar-tab" data-category="eye">아이</div>
+                    <div class="sub-menu-list">
+                        <span class="sub-menu-item">섀도우</span>
+                        <span class="sub-menu-item">아이라이너</span>
+                        <span class="sub-menu-item">마스카라</span>
+                    </div>
+                    <div class="sidebar-tab" data-category="lip">립</div>
+                    <div class="sub-menu-list">
+                        <span class="sub-menu-item">틴트</span>
+                        <span class="sub-menu-item">립스틱</span>
+                        <span class="sub-menu-item">글로스</span>
+                        <span class="sub-menu-item">립밤</span>
+                    </div>
+                    <div class="sidebar-tab" data-category="cheek">치크</div>
+                    <div class="sidebar-tab" data-category="hair">헤어</div>
+                </nav>
+            </div>
+
+            <footer class="bottom-panel">
+                <div class="side-actions">
+                    <button class="action-btn">색상 비교</button>
+                    <button class="action-btn btn-ai">AI 스타일링</button>
+                </div>
+                
+                <div class="carousel-container">
+                    <div class="product-list" id="product-list">
+                        <!-- Swatches will appear here -->
+                    </div>
+                </div>
+
+                <div class="tone-toggle-group">
+                    <button class="tone-btn warm active">WARM</button>
+                    <button class="tone-btn cool">COOL</button>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
