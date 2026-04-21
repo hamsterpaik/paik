@@ -145,7 +145,9 @@ body {
 
 /* Main Game Screen */
 .game-content {
-    background: var(--bg-stripes);
+    background-image: url('makeup_bg_new.png');
+    background-size: 100% 100%;
+    background-position: center;
     position: relative;
     padding: 10px;
     display: flex;
@@ -161,21 +163,21 @@ body {
     align-items: center;
     position: relative;
     padding-right: 70px;
-    margin-top: 5px;
+    margin-top: 15px; /* Adjust for name plate */
 }
 
 .oval-frame {
-    width: 260px;
-    height: 400px;
-    background: radial-gradient(circle, #FFE5EA 0%, #FFFFFF 100%);
+    width: 250px;
+    height: 380px;
+    background: transparent;
     border-radius: 50% / 50%;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.4);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
-    border: 5px solid white;
+    border: none;
+    transform: translateY(10px); /* Align with mirror in BG */
 }
 
 .main-character-img {
@@ -200,19 +202,20 @@ body {
     left: 50%;
     transform: translateX(-50%);
     background: white;
-    border: 3px solid var(--etude-pink-dark);
-    padding: 6px 20px;
-    border-radius: 4px;
-    box-shadow: var(--shadow);
+    border: 2px solid black;
+    padding: 8px 25px;
+    border-radius: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     z-index: 10;
-    min-width: 200px;
+    min-width: 180px;
     text-align: center;
 }
 
 .character-name-container span { 
-    font-weight: 900; 
-    font-size: 15px; 
+    font-weight: 800; 
+    font-size: 17px; 
     color: black;
+    letter-spacing: -0.5px;
 }
 
 /* Sidebar Navigation */
@@ -228,17 +231,17 @@ body {
 
 .sidebar-tab {
     background: white;
-    border: 2px solid var(--etude-pink-dark);
-    padding: 14px 5px;
+    border: 1px solid #FF8EAA;
+    padding: 12px 5px;
     text-align: center;
-    color: var(--etude-pink-dark);
+    color: #FF5A8D;
     font-weight: 800;
-    font-size: 15px;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 0;
 }
 
-.sidebar-tab.active { background: var(--etude-pink-dark); color: white; }
+.sidebar-tab.active { background: #FF5A8D; color: white; border-color: #FF5A8D; }
 
 .sub-menu-list {
     background: rgba(255, 255, 255, 0.95);
