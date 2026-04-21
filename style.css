@@ -145,9 +145,11 @@ body {
 
 /* Main Game Screen */
 .game-content {
-    background: var(--bg-stripes);
+    background-image: url('makeup_bg_new.png');
+    background-size: 100% 100%;
+    background-position: center;
     position: relative;
-    padding: 10px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     height: calc(100% - 50px);
@@ -160,17 +162,13 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-right: 70px;
-    margin-top: 5px;
-    /* Use the new mirror image as a decoration here? */
-    background: url('makeup_bg_new.png') no-repeat center;
-    background-size: contain;
+    margin-top: 10px;
 }
 
 .oval-frame {
-    width: 250px;
-    height: 380px;
-    background: transparent;
+    width: 240px;
+    height: 360px;
+    background: radial-gradient(circle, #FFFFFF 0%, #FFF0F5 100%); /* Cover the static character */
     border-radius: 50% / 50%;
     display: flex;
     justify-content: center;
@@ -178,7 +176,7 @@ body {
     overflow: hidden;
     position: relative;
     border: none;
-    transform: translateY(8px);
+    transform: translateY(12px);
 }
 
 .main-character-img {
@@ -199,23 +197,24 @@ body {
 
 .character-name-container {
     position: absolute;
-    top: -5px;
+    top: 5px;
     left: 50%;
     transform: translateX(-50%);
     background: white;
-    border: 3px solid var(--etude-pink-dark);
-    padding: 6px 20px;
-    border-radius: 4px;
-    box-shadow: var(--shadow);
+    border: 2px solid black;
+    padding: 8px 25px;
+    border-radius: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     z-index: 10;
-    min-width: 200px;
+    min-width: 180px;
     text-align: center;
 }
 
 .character-name-container span { 
-    font-weight: 900; 
-    font-size: 15px; 
+    font-weight: 800; 
+    font-size: 18px; 
     color: black;
+    letter-spacing: -0.5px;
 }
 
 /* Sidebar Navigation */
@@ -231,17 +230,18 @@ body {
 
 .sidebar-tab {
     background: white;
-    border: 2px solid var(--etude-pink-dark);
-    padding: 14px 5px;
+    border: 1px solid #FF8EAA;
+    padding: 12px 5px;
     text-align: center;
-    color: var(--etude-pink-dark);
+    color: #FF5A8D;
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 0;
+    margin-bottom: -1px;
 }
 
-.sidebar-tab.active { background: var(--etude-pink-dark); color: white; }
+.sidebar-tab.active { background: #FF5A8D; color: white; border-color: #FF5A8D; }
 
 .sub-menu-list {
     background: rgba(255, 255, 255, 0.95);
@@ -269,67 +269,70 @@ body {
 
 .action-btn {
     background: white;
-    border: 2px solid var(--etude-pink-dark);
+    border: 1px solid #FF5A8D;
     padding: 10px 5px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
-    color: var(--etude-pink-dark);
-    border-radius: 6px;
+    color: #FF5A8D;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .carousel-container {
-    border: 3px solid var(--etude-pink-dark);
+    border: 2px solid #FF8EAA;
     border-radius: 4px;
     overflow-x: auto;
     display: flex;
     align-items: center;
-    padding: 12px;
+    padding: 10px;
     background: white;
 }
 
-.product-list { display: flex; gap: 10px; }
+.product-list { display: flex; gap: 8px; }
 
 .palette-item {
-    width: 30px;
-    height: 45px;
+    width: 32px;
+    height: 48px;
     border-radius: 50% 50% 50% 10%; /* Teardrop swatch */
     transform: rotate(-45deg); 
     background-size: cover;
     background-position: center;
     border: 2px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     cursor: pointer;
-    margin: 5px;
+    margin: 4px;
 }
 
 .palette-item.selected { 
-    border: 3px solid var(--etude-pink-dark); 
-    box-shadow: 0 0 10px var(--etude-pink-dark);
+    border: 2px solid #FF5A8D; 
+    box-shadow: 0 0 8px rgba(255, 90, 141, 0.5);
 }
 
 .tone-toggle-group {
     grid-column: 1 / span 2;
     display: flex;
-    gap: 12px;
+    gap: 15px;
     margin-top: 5px;
 }
 
 .tone-btn {
     flex: 1;
-    padding: 15px;
-    border-radius: 40px;
-    border: none;
+    padding: 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
     font-weight: 900;
     color: white;
     font-size: 16px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-.tone-btn.warm { background: linear-gradient(180deg, #FF7E5F, #FEB47B); }
-.tone-btn.cool { background: linear-gradient(180deg, #6A11CB, #2575FC); }
+.tone-btn.warm { background: linear-gradient(180deg, #FF6B6B 0%, #FF8EAA 100%); }
+.tone-btn.cool { background: linear-gradient(180deg, #7C4DFF 0%, #B388FF 100%); }
 .tone-btn.active { 
-    box-shadow: 0 0 0 4px white, 0 4px 15px rgba(0,0,0,0.4);
-    transform: scale(1.02);
+    border: 2px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transform: scale(1.05);
 }
 
 /* Extra Screens (Finish, Gallery) */
