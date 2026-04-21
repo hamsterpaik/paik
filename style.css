@@ -145,9 +145,7 @@ body {
 
 /* Main Game Screen */
 .game-content {
-    background-image: url('makeup_bg_new.png');
-    background-size: 100% 100%;
-    background-position: center;
+    background: var(--bg-stripes);
     position: relative;
     padding: 10px;
     display: flex;
@@ -163,7 +161,10 @@ body {
     align-items: center;
     position: relative;
     padding-right: 70px;
-    margin-top: 15px; /* Adjust for name plate */
+    margin-top: 5px;
+    /* Use the new mirror image as a decoration here? */
+    background: url('makeup_bg_new.png') no-repeat center;
+    background-size: contain;
 }
 
 .oval-frame {
@@ -177,7 +178,7 @@ body {
     overflow: hidden;
     position: relative;
     border: none;
-    transform: translateY(10px); /* Align with mirror in BG */
+    transform: translateY(8px);
 }
 
 .main-character-img {
@@ -202,20 +203,19 @@ body {
     left: 50%;
     transform: translateX(-50%);
     background: white;
-    border: 2px solid black;
-    padding: 8px 25px;
-    border-radius: 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 3px solid var(--etude-pink-dark);
+    padding: 6px 20px;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
     z-index: 10;
-    min-width: 180px;
+    min-width: 200px;
     text-align: center;
 }
 
 .character-name-container span { 
-    font-weight: 800; 
-    font-size: 17px; 
+    font-weight: 900; 
+    font-size: 15px; 
     color: black;
-    letter-spacing: -0.5px;
 }
 
 /* Sidebar Navigation */
@@ -231,17 +231,17 @@ body {
 
 .sidebar-tab {
     background: white;
-    border: 1px solid #FF8EAA;
-    padding: 12px 5px;
+    border: 2px solid var(--etude-pink-dark);
+    padding: 14px 5px;
     text-align: center;
-    color: #FF5A8D;
+    color: var(--etude-pink-dark);
     font-weight: 800;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
-    border-radius: 0;
+    border-radius: 2px;
 }
 
-.sidebar-tab.active { background: #FF5A8D; color: white; border-color: #FF5A8D; }
+.sidebar-tab.active { background: var(--etude-pink-dark); color: white; }
 
 .sub-menu-list {
     background: rgba(255, 255, 255, 0.95);
